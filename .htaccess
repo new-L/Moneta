@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.C>
+	RewriteEngine on
+	RewriteBase /
+	RewriteCond %{HTTP_HOST} ^www.moneta_shop.com
+	RewriteRule (.*) http://moneta_shop.com/$1 [R=301,L]
+	RewriteCond %{THE_REQUEST} ^[A-Z]{3,9]\ /index\.php\ HTTP/
+	RewriteRule ^index\.php$ http://moneta_shop.com/ [R=301,L]
+
+
+ServerSignature Off
+AddDefaultCharset utf-8
+
+	RewriteRule ^delivery-payment?$ delivery-payment.php [NC,L]
+</IfModule>
